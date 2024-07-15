@@ -26,7 +26,7 @@ const Post = {
             SELECT posts.*, users.username 
             FROM posts 
             JOIN users ON posts.user_id = users.id 
-            WHERE posts.is_public = true
+            WHERE posts.is_public = 1
         `;
         db.query(query, (err, results) => {
             if (err) {
@@ -35,7 +35,7 @@ const Post = {
             callback(null, results);
         });
     },
-    // More methods as needed
+
 };
 
 module.exports = Post;

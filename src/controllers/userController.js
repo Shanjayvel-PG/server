@@ -83,7 +83,7 @@ const login = (req, res) => {
                             return res.status(401).json({ error: 'Invalid username or password' });
                         }
 
-                        const token = jwt.sign({ id: userByUsername.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+                        const token = jwt.sign({ id: userByUsername.id,username:userByUsername.username}, process.env.JWT_SECRET, { expiresIn: '1h' });
                         return res.json({ jwt_token: token });
                     });
                 } else {
